@@ -1,0 +1,41 @@
+[
+  "python",
+  "java",
+  "c++",
+  "javascript",
+  "typescript",
+
+  "react",
+  "angular",
+  "vue",
+  "html",
+  "css",
+
+  "node",
+  "express",
+  "fastapi",
+  "django",
+  "spring",
+
+  "sql",
+  "mysql",
+  "postgresql",
+  "mongodb",
+
+  "docker",
+  "kubernetes",
+  "aws",
+  "azure",
+  "gcp",
+
+  "rest",
+  "api",
+  "apis",
+  "microservices",
+
+  "git",
+  "github",
+
+  "redis",
+  "graphql"
+]
