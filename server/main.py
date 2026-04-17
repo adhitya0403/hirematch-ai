@@ -1,18 +1,9 @@
 from fastapi import FastAPI
 from services.analyzer import analyzer
+from services.tokenizer import tokenizer
 import json
 
-resume_text = ''' John Doe
-
-Skills:
-Python, FastAPI, SQL
-
-Experience:
-Built REST APIs using FastAPI and PostgreSQL.
-Worked on backend systems.
-
-Projects:
-Developed a task manager using Python and React. 
+resume_text = '''React.js , react js
 '''
 
 jd_text = ''' We are looking for a Backend Developer.
@@ -26,10 +17,9 @@ Requirements:
 Nice to have:
 
 - AWS experience 
+- React js
 '''
 
-with open("config/skill_set.json") as f:
-    skill_set = json.load(f)
 
 app = FastAPI()
 
@@ -39,5 +29,5 @@ def home():
 
 @app.get("/analyze")
 def analyze():
-    return analyzer(resume_text,jd_text,skill_set)
+ return analyzer(resume_text,jd_text)
 

@@ -1,4 +1,4 @@
-[
+skill_set = [
   "python",
   "java",
   "c++",
@@ -39,3 +39,15 @@
   "redis",
   "graphql"
 ]
+
+
+normalization_map = {
+    "apis": "api",
+    "api": "api",
+    "js": "javascript",
+    "postgres": "postgresql",
+    "nodejs": "node",
+    "node.js": "node",
+    "reactjs": "react",
+    "react.js": "react",
+}
