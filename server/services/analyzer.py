@@ -2,7 +2,6 @@ from services.extractor import extractor
 
 def analyzer(resume_text,jd_text):
     resume_set = extractor(resume_text)
-    jd_set = extractor(jd_text)
     # matched = jd_set & resume_set
     # not_matched = jd_set - resume_set
     # return {
@@ -12,5 +11,4 @@ def analyzer(resume_text,jd_text):
     # }
     return {
         "resume_set" : resume_set,
-        "jd_set": jd_set
     }

@@ -1,43 +1,35 @@
 skill_set = [
-  "python",
-  "java",
-  "c++",
-  "javascript",
-  "typescript",
+    # Languages
+    "python", "javascript", "typescript", "java", "c", "c++", "go", "rust","sql",
 
-  "react",
-  "angular",
-  "vue",
-  "html",
-  "css",
+    # Frontend
+    "react", "nextjs", "redux", "zustand",
+    "html", "css", "tailwind", "bootstrap", "sass",
+    "vite", "webpack",
 
-  "node",
-  "express",
-  "fastapi",
-  "django",
-  "spring",
+    # Backend
+    "node", "express", "fastapi", "django", "flask",
+    "spring", "springboot",
 
-  "sql",
-  "mysql",
-  "postgresql",
-  "mongodb",
+    # Databases
+    "postgresql", "mysql", "mongodb", "redis", "sqlite", "firebase",
 
-  "docker",
-  "kubernetes",
-  "aws",
-  "azure",
-  "gcp",
+    # APIs & Architecture
+    "api", "rest", "graphql", "microservices", "websocket",
 
-  "rest",
-  "api",
-  "apis",
-  "microservices",
+    # DevOps / Cloud
+    "aws", "azure", "gcp", "docker", "kubernetes",
+    "nginx", "vercel", "render", "netlify",
 
-  "git",
-  "github",
+    # Tools
+    "git", "github", "gitlab", "postman", "figma",
+    "linux", "bash",
 
-  "redis",
-  "graphql"
+    # Testing
+    "jest", "mocha", "chai", "pytest", "selenium",
+
+    # Data / AI
+    "pandas", "numpy", "tensorflow", "pytorch", "scikit"
 ]
 
 
