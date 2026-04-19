@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from services.analyzer import analyzer
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, UploadFile, File
-from fastapi.responses import JSONResponse
-from utils.text_extractor import extract_text
+from fastapi import FastAPI, UploadFile, File, Form
+from utils.get_text import get_text
+
 
 resume_text = '''Adhitya Darshanala
 Hyderabad|Email:darshanalaadhitya@gmail.com |Mobile:+91 7396498913 | LinkedIn|GitHub | Portfolio
@@ -76,18 +76,27 @@ app.add_middleware(
 def home():
     return {"Message":"Home"}
 
-@app.post("/upload_resume")
-async def handleUpload(file: UploadFile = File(...)):
-   if not file.filename:
-        return JSONResponse(content={"error": "No file name"}, status_code=400)
-   file_bytes = await file.read()
-   filename = file.filename
-   text = extract_text(file_bytes,filename)
-   return {
-        "text" : text[0:1000]
-   }
+@app.post("/analyze")
+async def analyze(
+    resume: UploadFile = File(...),
+    jd_file: UploadFile = File(None),
+    jd_text: str = Form(None),
+    role: str = Form(None)
+):
+    try:
+        #resume file
+        resume_text = await get_text(file=resume)
 
-@app.get("/analyze")
-def analyze():
- return analyzer(resume_text,jd_text)
+        # jd can be file OR text
+        jd_text = await get_text(file=jd_file, text=jd_text)
+
+        return {
+            "resume_text": resume_text[:1000],  # preview
+            "jd_text": jd_text[:1000] if jd_text else None,
+            "role": role,
+        }
+
+
+    except Exception as e:
+        return {"error": str(e)}
 
