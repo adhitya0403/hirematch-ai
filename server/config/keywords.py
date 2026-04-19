@@ -43,3 +43,12 @@ normalization_map = {
     "reactjs": "react",
     "react.js": "react",
 }
+
+SECTION_KEYWORDS = {
+    "summary": ["summary", "profile"],
+    "skills": ["skills", "technical skills","technologies"],
+    "experience": ["experience", "work experience"],
+    "projects": ["projects"],
+    "education": ["education"],
+    "cerfications" : ["certifications","achievements"]
+}

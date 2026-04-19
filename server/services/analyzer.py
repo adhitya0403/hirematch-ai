@@ -1,17 +1,16 @@
-from services.extractor import extractor
+from handlers.extractors import extract_sections
+
 
 def analyzer(resume_text, jd_text=None, role=None):
 
+    resume_sections = extract_sections(resume_text)
+
+    jd_processed = None
     if jd_text:
-        return {
-            "mode": "compare",
-            "message": "Comparing resume with JD",
-            "resume_preview": resume_text[:200],
-            "jd_preview": jd_text[:200],
-        }
+        jd_processed = extract_sections(jd_text)
 
     return {
-        "mode": "resume_only",
-        "message": f"Analyzing resume for role: {role}",
-        "resume_preview": resume_text[:200],
+        "resume_sections": resume_sections,
+        "jd_set": jd_processed if jd_text else None,
+        "role": role,
     }

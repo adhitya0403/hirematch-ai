@@ -89,12 +89,14 @@ async def analyze(
 
         # jd can be file OR text
         jd_text = await get_text(file=jd_file, text=jd_text)
+        
+        return analyzer(resume_text,jd_text,role)
 
-        return {
-            "resume_text": resume_text[:1000],  # preview
-            "jd_text": jd_text[:1000] if jd_text else None,
-            "role": role,
-        }
+        # return {
+        #     "resume_text": resume_text[:1000],  # preview
+        #     "jd_text": jd_text[:1000] if jd_text else None,
+        #     "role": role,
+        # }
 
 
     except Exception as e:

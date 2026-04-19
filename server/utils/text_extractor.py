@@ -1,17 +1,13 @@
-import pdfplumber
-import io
-# from docx import Document
+import fitz  # PyMuPDF
 
 def text_extractor(file_bytes, filename):
-    text = ""
-    filename = filename.lower()
-
-    if filename.endswith(".pdf"):
-        with pdfplumber.open(io.BytesIO(file_bytes)) as pdf:
-            for page in pdf.pages:
-                text += page.extract_text() or ""
-
-    else:
+    if not filename.lower().endswith(".pdf"):
         raise ValueError("Unsupported file type")
+
+    text = ""
+
+    with fitz.open(stream=file_bytes, filetype="pdf") as doc:
+        for page in doc:
+            text += page.get_text() + "\n"
 
     return text

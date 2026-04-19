@@ -46,6 +46,7 @@ export default function Uploader({setContent}) {
 
       const data = await response.json();
       setContent(data)
+      console.log(data)
     } catch (err) {
       console.log("Error:", err);
     }

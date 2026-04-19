@@ -11,22 +11,41 @@ const Viewer = ({ content }) => {
 
   return (
     <div className="border-2 border-dotted border-gray-700 rounded-md p-6 space-y-4 text-white">
+      {content.resume_sections && (
+        <div className="space-y-6">
+          {Object.entries(content?.resume_sections || {}).map(
+            ([section, items]) => (
+              <div key={section}>
+                <h2 className="font-semibold text-green-400 mb-2 capitalize">
+                  {section}
+                </h2>
 
-      {content.resume_text && (
-        <div>
-          <h2 className="font-semibold text-green-400 mb-1">Resume</h2>
-          <p className="text-sm whitespace-pre-wrap">
-            {content.resume_text}
-          </p>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((item, i) => (
+                    <span
+                      key={i}
+                      className="text-sm text-gray-300 px-2 py-1 border border-gray-700 rounded"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ),
+          )}
         </div>
       )}
 
-      {content.jd_text && (
+      {content.jd_set && (
         <div>
           <h2 className="font-semibold text-blue-400 mb-1">Job Description</h2>
-          <p className="text-sm whitespace-pre-wrap">
-            {content.jd_text}
-          </p>
+          <div className="flex flex-wrap gap-2">
+            {content?.jd_set?.map((word) => (
+              <span key={word} className="text-sm text-gray-300 px-2 py-1">
+                {word}
+              </span>
+            ))}
+          </div>
         </div>
       )}
 
@@ -40,4 +59,4 @@ const Viewer = ({ content }) => {
   );
 };
 
-export default Viewer
+export default Viewer;
